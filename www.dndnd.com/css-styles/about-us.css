@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    text-decoration: none;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    background-image: url('../photos/home-background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 60px;
+}
+
+.our-story-box{
+    width: 100%;
+    height: 30em;
+    background-color: #fff;
+}
+
+.group-photo {
+    width: 100%;
+    height: 30em;
+    background-color: transparent;
+}
+
+.we-box{
+    width: 100%;
+    height: 30em;
+    background: #c0c0c0;
+}
+
+.our-story-box h2 {
+    padding: 10px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 60px;
+    color:  #000000;
+    text-transform: uppercase;
+}
+
+.our-story-box p {
+    padding-top: 0;
+    padding-bottom: 5px;
+    padding-right: 100px;
+    padding-left: 5px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 30px;
+    color: #000000;
+    text-align: justify;
+}
+
+.we-box h2 {
+    padding: 15px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 60px;
+    color: #000000;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.we-box p {
+    padding-top: 0;
+    padding-bottom: 5px;
+    padding-left: 100px;
+    padding-right: 5px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 30px;
+    color: #000000;
+    text-align: right;
+}
+
+@media only screen and (min-width: 1000px) {
+    .our-story-box p {
+        margin-right: 1600px;
+    }
+    .we-box p {
+        margin-left: 1600px;
+    }
+}
