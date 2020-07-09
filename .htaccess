@@ -1,5 +1,5 @@
-ErrorDocument 404 /error/page-not-found.html
-ErrorDocument 403 /error/page-not-found.html
+ErrorDocument 404 /dndnd/error/page-not-found.html
+ErrorDocument 403 /dndnd/error/page-not-found.html
 
 #mod_rewrite starts here
  
