@@ -10,7 +10,7 @@
     backface-visibility: hidden;
     animation: slideshow 30s linear infinite 10s;
     animation-timing-function: ease-out;
-    background-image: url('../photos/slide1.jpg');
+    background-image: url('../photos/slide4.jpg');
     padding-bottom: 3em;
     padding-top: 3em;
     margin-top: 100vh;
