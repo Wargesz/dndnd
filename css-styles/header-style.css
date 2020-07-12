@@ -181,11 +181,6 @@ button:hover {
         font-size: 20px;
         line-height: 40px;
     }
-
-    header nav ul li a {
-        line-height: 60px;
-    }
-
     header .header-things {
         display: block;
         font-family: 'Overpass';
