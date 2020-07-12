@@ -182,8 +182,9 @@ button:hover {
         font-size: 20px;
         line-height: 40px;
     }
-    .header-nav{
+    .header-nav {
         width: auto;
+    }
     header .header-things {
         display: block;
         font-family: 'Overpass';
