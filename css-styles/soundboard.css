@@ -16,6 +16,7 @@ header .title-head{
     height: auto;
     width: 100%;
     align-items: center;
+    opacity: 0.5;
 }
 
 header .title-head h1{
@@ -24,8 +25,12 @@ header .title-head h1{
     font-size: 36px;
     color: black;
     text-align: center;
+    opacity: 1;
 }
 
+.sounds{
+    align-items: center;
+}
 .sounds button{
     position: relative;
     color: #2196f3;
