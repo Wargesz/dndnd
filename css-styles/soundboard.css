@@ -34,7 +34,10 @@ header .title-head h1{
     opacity: 1;
 }
 
-.sounds{
+.sounds {
+    left: 50%;
+    transform: translate(-50%);
+    width: 400px;
     position: relative;
 }
 .sounds button{
