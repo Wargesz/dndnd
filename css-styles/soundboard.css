@@ -25,6 +25,11 @@ header .title-head{
     opacity: 0.5;
 }
 
+header .logo {
+    left: 50%;
+    transform: translate(-50%);
+}
+
 header .title-head h1{
     padding: 10px;
     text-transform: uppercase;
@@ -34,11 +39,10 @@ header .title-head h1{
     opacity: 1;
 }
 header .title-head i{
+    position: absolute;
     padding: 10px;
     font-size: 36px;
     color: black;
-    text-align: center;
-    align-items: center;
     opacity: 1;
 }
 .sounds {
