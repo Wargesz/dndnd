@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en" dir="ltr">
+<head>
+    <title>D&D&D | Soundboard</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Soundboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css-styles/styles.css">
+    <link rel="stylesheet" href="css-styles/soundboard.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="icon" type="image/png" href="photos/favicon.png" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <header>
+            <audio id="gnome_sound_effect">
+                <source src="soundboard/gnome_sound_effect.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
 
-<audio id="gnome_sound_effect">
-  <source src="soundboard/gnome_sound_effect.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+            <h1>SOUNDBOARD</h1>
+        </header>
 
-<p>SOUNDBOARD</p>
+        <div class="sounds">
+            <button onclick="playGnomeAudio()" type="button">Gnome</button>
+        
+        </div>
+        
+        <div class="scripts">
+            <script>
+                function playGnomeAudio() { 
+                  let audio = document.getElementById("gnome_sound_effect"); 
+                  audio.play(); 
+                }
+            </script>
 
-<button onclick="playGnomeAudio()" type="button">Gnome</button>
-
-<script>
-function playGnomeAudio() { 
-  let audio = document.getElementById("gnome_sound_effect"); 
-  audio.play(); 
-}
-
-</script>
-
-</body>
+        </div>
+    </body>
 </html>
