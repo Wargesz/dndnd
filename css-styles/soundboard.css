@@ -35,7 +35,8 @@ header .title-head h1{
 }
 
 .sounds {
-    left: 0;
+    left: 50%;
+    transform: translate(-50%);
     width: 400px;
     position: relative;
 }
@@ -63,7 +64,9 @@ header .title-head h1{
 }
 
 @media only screen and (min-width: 1000px) {
-    .sounds{
+    .sounds {
+        transform: translate(0);
+        left: 0;
         width: 1280px;
     }
 }
