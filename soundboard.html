@@ -13,11 +13,17 @@
 </head>
     <body style="position: relative; min-height: 100%; top: 0px;">
         <header>
-            <audio id="gnome_sound_effect">
-                <source src="soundboard/Cave5.ogg" type="audio/mpeg">
-                <source src="soundboard/gnome_sound_effect.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+            <div class="audio-src">
+                <audio id="gnome_sound_effect">
+                    <source src="soundboard/gnome_sound_effect.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="cave_sound_effect">
+                    <source src="soundboard/Cave5.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+            </div>
             <div class="title-head">
                 <h1>SOUNDBOARD</h1>
             </div>
@@ -35,6 +41,10 @@
 
                 function playGnomeAudio() { 
                   let audio = document.getElementById("gnome_sound_effect"); 
+                  audio.play(); 
+                }
+                function playCaveAudio() { 
+                  let audio = document.getElementById("cave_sound_effect"); 
                   audio.play(); 
                 }
 
