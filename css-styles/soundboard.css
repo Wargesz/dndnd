@@ -64,12 +64,38 @@ header .title-head i{
     box-shadow: none;
 
 }
-.sounds button:hover{
+.sounds button:hover {
     color: #255784;
     background: #2196f3;
     box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
     border-radius: 15px;
+    }
+.looper {
+    left: 50%;
+    transform: translate(-50%);
+    width: 320px;
+    position: relative;
 }
+
+    .looper button {
+        width: 300px;
+        position: relative;
+        color: #ff0000;
+        display: inline-block;
+        background: transparent;
+        padding: 10px 25px;
+        letter-spacing: 4px;
+        font-size: 24px;
+        margin-top: 25px;
+        transition: 0.4s;
+        box-shadow: none;
+    }
+        .looper button:hover {
+            color: black;
+            background: #ff0000;
+            box-shadow: 0 0 10px #ff1a1a, 0 0 40px #ff1a1a, 0 0 80px #ff1a1a;
+            border-radius: 15px;
+        }
 
 @media only screen and (min-width: 1000px) {
     .sounds {

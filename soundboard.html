@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <title>D&D&D | Soundboard</title>
@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="photos/favicon.png" />
     <link rel="stylesheet" href="styles.css">
 </head>
-    <body style="position: relative; min-height: 100%; top: 0px;">
+    <body style="position: relative; min-height: 100%; top: 0px;" onload="nameChanger()">
         <header>
             <div class="audio-src">
                 <audio id="gnome_sound_effect">
@@ -46,7 +46,9 @@
                 </div>
             </div>
         </header>
-
+        <div class="looper">
+        <button id="looper_button" type="button" onclick="nameChanger()"></button>
+        </div>
         <div class="sounds">
 
             <button onclick="playGnomeAudio()" type="button">Gnome</button>
@@ -61,30 +63,118 @@
         
         <div class="scripts">
             <script>
-
+                //looper
+                    let isLooped = true;
+                    function nameChanger() {
+                        if (isLooped == false) {
+                        document.querySelector('#looper_button').innerText = 'LOOP:ON';
+                            isLooped = true;
+                        }
+                        else {
+                        document.querySelector('#looper_button').innerText = 'LOOP:OFF';
+                            isLooped = false;
+                        }
+                    }
+                //audio play
                 function playGnomeAudio() { 
-                  let audio = document.getElementById("gnome_sound_effect"); 
-                  audio.play(); 
+                    let audio = document.getElementById("gnome_sound_effect");
+                    //audio.play();
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('gnome_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
                 }
                 function playCaveAudio() { 
                   let audio = document.getElementById("cave_sound_effect"); 
-                  audio.play(); 
+                    //audio.play();
+                    //
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('cave_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
+                    //
                 }
                 function playVillager_hurtAudio() { 
                   let audio = document.getElementById("villager_hurt_sound_effect"); 
-                  audio.play(); 
+                    //audio.play(); 
+                    //
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('villager_hurt_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
+                    //
                 }
                 function playVillager_idleAudio() { 
                   let audio = document.getElementById("villager_idle_sound_effect"); 
-                  audio.play(); 
+                    //audio.play(); 
+                    //
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('villager_idle_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
+                    //
                 }
                 function playVillager_tradeAudio() { 
                   let audio = document.getElementById("villager_trade_sound_effect"); 
-                  audio.play(); 
+                    //audio.play(); 
+                    //
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('villager_trade_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
+                    //
                 }
                 function playVillager_denyAudio() { 
                   let audio = document.getElementById("villager_deny_sound_effect"); 
-                  audio.play(); 
+                    //audio.play(); 
+                    //
+                    if (isLooped == true) {
+                        audio.play();
+                        document.getElementById('villager_deny_sound_effect').addEventListener('ended', function () {
+                            if (isLooped == true) {
+                                audio.play();
+                            }
+                        }, false);
+                    }
+                    else {
+                        audio.play();
+                    }
+                    //
                 }
 
             </script>
