@@ -37,12 +37,10 @@ header .title-head h1{
 .sounds {
     left: 50%;
     transform: translate(-50%);
-    width: 400px;
+    width: 320px;
     position: relative;
 }
 .sounds button{
-    left: 50%;
-    transform: translate(-50%);
     width: 300px;
     position: relative;
     color: #2196f3;
@@ -65,8 +63,6 @@ header .title-head h1{
 
 @media only screen and (min-width: 1000px) {
     .sounds {
-        transform: translate(0);
-        left: 0;
         width: 1280px;
     }
 }
