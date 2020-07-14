@@ -7,8 +7,8 @@
     margin: 0;
 }
 
-body{
-    background: url("photos/home-background.png");
+body {
+    background-image: url('../photos/home-background.png');
 }
 
 header .title-head{
