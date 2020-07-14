@@ -22,6 +22,22 @@
                     <source src="soundboard/Cave5.ogg" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
+                <audio id="villager_idle_sound_effect">
+                    <source src="soundboard/Villager_idle1.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="villager_hurt_sound_effect">
+                    <source src="soundboard/Villager_hurt1.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="villager_trade_sound_effect">
+                    <source src="soundboard/Villager_trade1.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio id="villager_deny_sound_effect">
+                    <source src="soundboard/Villager_deny1.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
 
             </div>
             <div class="title-head">
@@ -33,6 +49,11 @@
 
             <button onclick="playGnomeAudio()" type="button">Gnome</button>
             <button onclick="playCaveAudio()" type="button">Cave</button>
+            <button onclick="playVillager_hurtAudio()" type="button">Villager_hurt</button>
+            <button onclick="playVillager_idleAudio()" type="button">Villager_idle</button>
+            <button onclick="playVillager_tradeAudio()" type="button">Villager_trade</button>
+            <button onclick="playVillager_denyAudio()" type="button">Villager_deny</button>
+
         
         </div>
         
@@ -45,6 +66,22 @@
                 }
                 function playCaveAudio() { 
                   let audio = document.getElementById("cave_sound_effect"); 
+                  audio.play(); 
+                }
+                function playVillager_hurtAudio() { 
+                  let audio = document.getElementById("villager_hurt_sound_effect"); 
+                  audio.play(); 
+                }
+                function playVillager_idleAudio() { 
+                  let audio = document.getElementById("villager_idle_sound_effect"); 
+                  audio.play(); 
+                }
+                function playVillager_tradeAudio() { 
+                  let audio = document.getElementById("villager_trade_sound_effect"); 
+                  audio.play(); 
+                }
+                function playVillager_denyAudio() { 
+                  let audio = document.getElementById("villager_deny_sound_effect"); 
                   audio.play(); 
                 }
 
