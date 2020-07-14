@@ -33,7 +33,14 @@ header .title-head h1{
     text-align: center;
     opacity: 1;
 }
-
+header .title-head i{
+    padding: 10px;
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    align-items: center;
+    opacity: 1;
+}
 .sounds {
     left: 50%;
     transform: translate(-50%);
