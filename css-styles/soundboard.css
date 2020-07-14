@@ -39,7 +39,6 @@ header .title-head h1{
     opacity: 1;
 }
 header .title-head i{
-    position: absolute;
     padding: 10px;
     font-size: 36px;
     color: black;
