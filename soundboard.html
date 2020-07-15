@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="photos/favicon.png" />
     <link rel="stylesheet" href="styles.css">
 </head>
-    <body style="position: relative; min-height: 100%; top: 0px;" onload="nameChanger()">
+    <body style="position: relative; min-height: 100%; top: 0px;" onload="nameChanger(), stopper()">
         <header>
             <div class="audio-src">
                 <audio id="gnome_sound_effect">
@@ -48,7 +48,8 @@
         </header>
         <div class="looper">
             <button id="looper_button" type="button" onclick="nameChanger()"></button>
-            
+            <button id="player" type="button" onclick="stopper()"></button>
+
         </div>
         <div class="sounds">
 
@@ -64,6 +65,20 @@
         
         <div class="scripts">
             <script>
+                let audio;
+                //stopper
+                function stopper() {
+                    document.getElementById('player').innerText = 'STOP (OFF)';
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+                //
+                function buttonChanger() {
+                    document.getElementById('player').innerText = 'STOP (ON)';
+                    audio.addEventListener("ended", function () {
+                        document.getElementById('player').innerText = 'STOP (OFF)';
+                    });
+                }
                 //looper
                     let isLooped = true;
                     function nameChanger() {
@@ -78,9 +93,9 @@
                     }
                 //audio play
                 function playGnomeAudio() { 
-                    let audio = document.getElementById("gnome_sound_effect");
-                    //audio.play();
+                  audio = document.getElementById("gnome_sound_effect");
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('gnome_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -89,14 +104,15 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                 }
                 function playCaveAudio() { 
-                  let audio = document.getElementById("cave_sound_effect"); 
-                    //audio.play();
+                  audio = document.getElementById("cave_sound_effect"); 
                     //
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('cave_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -105,15 +121,16 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                     //
                 }
                 function playVillager_hurtAudio() { 
-                  let audio = document.getElementById("villager_hurt_sound_effect"); 
-                    //audio.play(); 
+                    audio = document.getElementById("villager_hurt_sound_effect");
                     //
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('villager_hurt_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -122,15 +139,16 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                     //
                 }
                 function playVillager_idleAudio() { 
-                  let audio = document.getElementById("villager_idle_sound_effect"); 
-                    //audio.play(); 
+                  audio = document.getElementById("villager_idle_sound_effect"); 
                     //
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('villager_idle_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -139,15 +157,16 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                     //
                 }
                 function playVillager_tradeAudio() { 
-                  let audio = document.getElementById("villager_trade_sound_effect"); 
-                    //audio.play(); 
+                  audio = document.getElementById("villager_trade_sound_effect"); 
                     //
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('villager_trade_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -156,15 +175,16 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                     //
                 }
                 function playVillager_denyAudio() { 
-                  let audio = document.getElementById("villager_deny_sound_effect"); 
-                    //audio.play(); 
+                  audio = document.getElementById("villager_deny_sound_effect"); 
                     //
                     if (isLooped == true) {
+                        document.getElementById('player').innerText = 'STOP (ON)';
                         audio.play();
                         document.getElementById('villager_deny_sound_effect').addEventListener('ended', function () {
                             if (isLooped == true) {
@@ -173,6 +193,7 @@
                         }, false);
                     }
                     else {
+                        buttonChanger();
                         audio.play();
                     }
                     //

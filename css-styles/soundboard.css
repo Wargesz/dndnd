@@ -97,6 +97,27 @@ header .title-head i{
     border-radius: 15px;
 }
 
+.player button {
+    width: 300px;
+    position: relative;
+    color: #ff0000;
+    display: inline-block;
+    background: transparent;
+    padding: 10px 25px;
+    letter-spacing: 4px;
+    font-size: 24px;
+    margin-top: 25px;
+    transition: 0.4s;
+    box-shadow: none;
+}
+
+.player button:hover {
+    color: black;
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff1a1a, 0 0 40px #ff1a1a, 0 0 80px #ff1a1a;
+    border-radius: 15px;
+}
+
 @media only screen and (min-width: 1000px) {
     .sounds {
         width: 1280px;
