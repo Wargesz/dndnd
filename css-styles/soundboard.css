@@ -56,7 +56,7 @@ header .title-head i{
 }
 .A22 div:nth-child(odd){
     border-top-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     background: red;
     opacity: 0.4;
 }
