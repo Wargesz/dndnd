@@ -49,18 +49,23 @@ header .title-head i{
     left: 50%;
     transform: translate(-50%);
     display: grid;
+    padding: 15px;
     min-height: 150px;
     width: 400px;
     text-align: center;
     border-radius: 15px;
 }
 .A22 div:nth-child(odd){
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     background: red;
     opacity: 0.4;
 }
 .A22 div:nth-child(even){
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     background: blue;
-    opacity: 0.9;
+    opacity: 0.5;
 }
 
 .sounds {
