@@ -45,10 +45,11 @@ header .title-head i{
     opacity: 1;
 }
 .A22 {
+    position: relative;
     left: 50%;
     transform: translate(-50%);
     display: grid;
-    height: auto;
+    min-height: 150px;
     width: 400px;
     text-align: center;
 }
