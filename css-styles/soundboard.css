@@ -44,29 +44,6 @@ header .title-head i{
     color: black;
     opacity: 1;
 }
-.A22 {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    display: grid;
-    padding: 15px;
-    min-height: 150px;
-    min-width: 300px;
-    text-align: center;
-}
-.A22 div:nth-child(odd){
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background: red;
-    opacity: 0.4;
-}
-.A22 div:nth-child(even){
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background: blue;
-    opacity: 0.5;
-}
-
 .sounds {
     left: 50%;
     transform: translate(-50%);
