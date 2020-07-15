@@ -51,7 +51,7 @@ header .title-head i{
     display: grid;
     padding: 15px;
     min-height: 150px;
-    width: 400px;
+    min-width: 300px;
     text-align: center;
     border-radius: 15px;
 }
