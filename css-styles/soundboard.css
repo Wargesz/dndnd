@@ -52,13 +52,17 @@ header .title-head i{
     min-height: 150px;
     width: 400px;
     text-align: center;
-}
-.A22 div:nth-child(even){
-    background: transparent;
+    border-radius: 15px;
 }
 .A22 div:nth-child(odd){
     background: red;
+    opacity: 0.4;
 }
+.A22 div:nth-child(even){
+    background: blue;
+    opacity: 0.9;
+}
+
 .sounds {
     left: 50%;
     transform: translate(-50%);
