@@ -119,11 +119,11 @@ header .title-head i{
 }
 
 .sound-footer {
-    position: absolute;
+    position: relative;
     height: 12px;
     width: calc(100% - 80px);
     padding: 10px 40px 40px 40px;
-    top: 0;
+    top: 50px;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -136,7 +136,8 @@ header .title-head i{
 .sound-footer h2{
     text-align: center;
     font-family: 'Overpass';
-    font-size: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
     color: #fff;
 }
 
