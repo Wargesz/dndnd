@@ -145,7 +145,7 @@
     .menu-container {
         display: none;
     }
-    .nav-karakterek{
-        display: block;
+    .nav-karakter {
+        display: inline-block;
     }
 }
