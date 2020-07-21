@@ -16,7 +16,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-/* NEUR06*/
 body::-webkit-scrollbar{
     width: 0.65rem;
 }
@@ -24,5 +23,5 @@ body::-webkit-scrollbar-track{
     background: #1e1e24;
 }
 body::-webkit-scrollbar-thumb{
-    background: #6649b8;
+    background: #ff0000;
 }
