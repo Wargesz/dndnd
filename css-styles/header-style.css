@@ -94,8 +94,8 @@ nav ul li:hover ul li {
     position: absolute;
     margin-top: -40px;
     margin-left: 140px;
+    color: #fff;
 }
-
 
 nav a {
     color: #fff;
