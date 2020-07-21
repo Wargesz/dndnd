@@ -137,8 +137,15 @@
     color: #fff44f;
 }
 
+.nav-karakterek {
+    display: none;
+}
+
 @media only screen and (min-width: 1000px) {
     .menu-container {
         display: none;
+    }
+    .nav-karakterek{
+        display: block;
     }
 }
