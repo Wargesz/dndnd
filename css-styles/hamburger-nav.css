@@ -136,3 +136,9 @@
 .menu > div > div > ul > li > a:hover{
     color: #fff44f;
 }
+
+@media only screen and (min-width: 1000px) {
+    .menu-container {
+        display: none;
+    }
+}
