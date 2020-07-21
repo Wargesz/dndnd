@@ -6,7 +6,7 @@
 
 footer {
     position: relative;
-    height: 12px;
+    height: auto;
     width: calc(100% - 80px);
     justify-content: center;
     align-items: center;
