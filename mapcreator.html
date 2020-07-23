@@ -2,6 +2,105 @@
 <head>
     <meta charset="UTF-8">
     <title>D&D&D | MapCreator</title>
+    <script type="text/javascript">
+        //
+        let i = 1;
+        let h = 1;
+        let selectedColor = "green";
+        let color;
+        let gridVisible = true;
+        let mapCode = [];
+        let mapRawCode = [];
+        let selectedConvertedColor = 1;
+        //
+            // 0 white
+            // 1 green
+            // 2 brown
+            // 3 blue
+        //
+        function mapSetter() {
+            for (i = 1; i <= 400; i++) {
+                mapCode[i-1] = 0
+            }
+        }
+        mapSetter();
+        //
+        function greenSelecter() {
+            document.getElementById('green_button').innerHTML = "(Green)";
+            document.getElementById('brown_button').innerHTML = "Brown";
+            document.getElementById('blue_button').innerHTML = "Blue";
+            document.getElementById('white_button').innerHTML = "White";
+            selectedColor = "green";
+            selectedConvertedColor = 1;
+        }
+        function brownSelecter() {
+            document.getElementById('brown_button').innerHTML = "(Brown)";
+            document.getElementById('green_button').innerHTML = "Green";
+            document.getElementById('blue_button').innerHTML = "Blue";
+            document.getElementById('white_button').innerHTML = "White";
+            selectedColor = "brown";
+            selectedConvertedColor = 2;
+        }
+        function blueSelecter() {
+            document.getElementById('blue_button').innerHTML = "(Blue)";
+            document.getElementById('green_button').innerHTML = "Green";
+            document.getElementById('brown_button').innerHTML = "Brown";
+            document.getElementById('white_button').innerHTML = "White";
+            selectedColor = "blue";
+            selectedConvertedColor = 3;
+        }
+        function whiteSelecter() {
+            document.getElementById('white_button').innerHTML = "(White)";
+            document.getElementById('blue_button').innerHTML = "Blue";
+            document.getElementById('green_button').innerHTML = "Green";
+            document.getElementById('brown_button').innerHTML = "Brown";
+            selectedColor = "white";
+            selectedConvertedColor = 0;
+        }
+        //
+        function colorChanger(cellNumber) {
+            color = document.getElementById("mainTable").getElementsByTagName("td");
+            color[cellNumber].style.backgroundColor = selectedColor;
+            mapCode[cellNumber] = selectedConvertedColor;
+        }
+        //
+        function clearer() {
+            for (i = 1; i <= 400; i++) {
+                color = document.getElementById("mainTable").getElementsByTagName("td");
+                color[i - 1].style.backgroundColor = "white";
+                mapCode[i - 1] = 0;
+            }
+        }
+        //
+        function saver() {
+            document.getElementById('mapSavingCode').value = mapCode;
+        }
+        //
+        function loader() {
+            mapRawCode = document.getElementById('mapLoaderCode').value;
+            for (i = 1; i <= 800; i++) {
+                if (mapRawCode[i - 1] != ",") {
+                    mapCode[h - 1] = mapRawCode[i - 1]
+                    h++;
+                }
+            }
+            for (i = 1; i <= 400; i++) {
+                color = document.getElementById("mainTable").getElementsByTagName("td");
+                if (mapCode[i - 1] == 0) {
+                    color[i - 1].style.backgroundColor = "white";
+                }
+                if (mapCode[i - 1] == 1) {
+                    color[i - 1].style.backgroundColor = "green";
+                }
+                if (mapCode[i - 1] == 2) {
+                    color[i - 1].style.backgroundColor = "brown";
+                }
+                if (mapCode[i - 1] == 3) {
+                    color[i - 1].style.backgroundColor = "blue";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <style type="text/css">
@@ -10,6 +109,7 @@
             border-style: solid;
             border-width: 1px;
         }
+
         .tg td {
             border-color: black;
             border-style: solid;
@@ -20,14 +120,16 @@
             padding: 9px 9px;
             word-break: normal;
         }
-        .tg td:hover {
-            border-width: 3px;
-            padding: 6px 6px;
-        }
+
+            .tg td:hover {
+                border-width: 3px;
+                padding: 6px 6px;
+            }
     </style>
     <div>
-        <button id="grid_button" onclick="gridChanger()">GRID: ON</button>
+        <button id="clear_button" onclick="clearer()">Clear</button>
     </div>
+
     <div id="buttons" class="buttons">
         Choose color:
         <button id="green_button" onclick="greenSelecter()">(Green)</button>
@@ -36,492 +138,453 @@
         <button id="white_button" onclick="whiteSelecter()">White</button>
     </div>
     <table class="tg" id="mainTable">
-            <tr>
-                <td onclick="colorChanger(0)"></td>
-                <td onclick="colorChanger(1)"></td>
-                <td onclick="colorChanger(2)"></td>
-                <td onclick="colorChanger(3)"></td>
-                <td onclick="colorChanger(4)"></td>
-                <td onclick="colorChanger(5)"></td>
-                <td onclick="colorChanger(6)"></td>
-                <td onclick="colorChanger(7)"></td>
-                <td onclick="colorChanger(8)"></td>
-                <td onclick="colorChanger(9)"></td>
-                <td onclick="colorChanger(10)"></td>
-                <td onclick="colorChanger(11)"></td>
-                <td onclick="colorChanger(12)"></td>
-                <td onclick="colorChanger(13)"></td>
-                <td onclick="colorChanger(14)"></td>
-                <td onclick="colorChanger(15)"></td>
-                <td onclick="colorChanger(16)"></td>
-                <td onclick="colorChanger(17)"></td>
-                <td onclick="colorChanger(18)"></td>
-                <td onclick="colorChanger(19)"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>   
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr> 
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
-            <tr>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-                <td onclick="colorChanger()"></td>
-            </tr>
+        <tr>
+            <td onclick="colorChanger(0)"></td>
+            <td onclick="colorChanger(1)"></td>
+            <td onclick="colorChanger(2)"></td>
+            <td onclick="colorChanger(3)"></td>
+            <td onclick="colorChanger(4)"></td>
+            <td onclick="colorChanger(5)"></td>
+            <td onclick="colorChanger(6)"></td>
+            <td onclick="colorChanger(7)"></td>
+            <td onclick="colorChanger(8)"></td>
+            <td onclick="colorChanger(9)"></td>
+            <td onclick="colorChanger(10)"></td>
+            <td onclick="colorChanger(11)"></td>
+            <td onclick="colorChanger(12)"></td>
+            <td onclick="colorChanger(13)"></td>
+            <td onclick="colorChanger(14)"></td>
+            <td onclick="colorChanger(15)"></td>
+            <td onclick="colorChanger(16)"></td>
+            <td onclick="colorChanger(17)"></td>
+            <td onclick="colorChanger(18)"></td>
+            <td onclick="colorChanger(19)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(20)"></td>
+            <td onclick="colorChanger(21)"></td>
+            <td onclick="colorChanger(22)"></td>
+            <td onclick="colorChanger(23)"></td>
+            <td onclick="colorChanger(24)"></td>
+            <td onclick="colorChanger(25)"></td>
+            <td onclick="colorChanger(26)"></td>
+            <td onclick="colorChanger(27)"></td>
+            <td onclick="colorChanger(28)"></td>
+            <td onclick="colorChanger(29)"></td>
+            <td onclick="colorChanger(30)"></td>
+            <td onclick="colorChanger(31)"></td>
+            <td onclick="colorChanger(32)"></td>
+            <td onclick="colorChanger(33)"></td>
+            <td onclick="colorChanger(34)"></td>
+            <td onclick="colorChanger(35)"></td>
+            <td onclick="colorChanger(36)"></td>
+            <td onclick="colorChanger(37)"></td>
+            <td onclick="colorChanger(38)"></td>
+            <td onclick="colorChanger(39)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(40)"></td>
+            <td onclick="colorChanger(41)"></td>
+            <td onclick="colorChanger(42)"></td>
+            <td onclick="colorChanger(43)"></td>
+            <td onclick="colorChanger(44)"></td>
+            <td onclick="colorChanger(45)"></td>
+            <td onclick="colorChanger(46)"></td>
+            <td onclick="colorChanger(47)"></td>
+            <td onclick="colorChanger(48)"></td>
+            <td onclick="colorChanger(49)"></td>
+            <td onclick="colorChanger(50)"></td>
+            <td onclick="colorChanger(51)"></td>
+            <td onclick="colorChanger(52)"></td>
+            <td onclick="colorChanger(53)"></td>
+            <td onclick="colorChanger(54)"></td>
+            <td onclick="colorChanger(55)"></td>
+            <td onclick="colorChanger(56)"></td>
+            <td onclick="colorChanger(57)"></td>
+            <td onclick="colorChanger(58)"></td>
+            <td onclick="colorChanger(59)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(60)"></td>
+            <td onclick="colorChanger(61)"></td>
+            <td onclick="colorChanger(62)"></td>
+            <td onclick="colorChanger(63)"></td>
+            <td onclick="colorChanger(64)"></td>
+            <td onclick="colorChanger(65)"></td>
+            <td onclick="colorChanger(66)"></td>
+            <td onclick="colorChanger(67)"></td>
+            <td onclick="colorChanger(68)"></td>
+            <td onclick="colorChanger(69)"></td>
+            <td onclick="colorChanger(70)"></td>
+            <td onclick="colorChanger(71)"></td>
+            <td onclick="colorChanger(72)"></td>
+            <td onclick="colorChanger(73)"></td>
+            <td onclick="colorChanger(74)"></td>
+            <td onclick="colorChanger(75)"></td>
+            <td onclick="colorChanger(76)"></td>
+            <td onclick="colorChanger(77)"></td>
+            <td onclick="colorChanger(78)"></td>
+            <td onclick="colorChanger(79)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(80)"></td>
+            <td onclick="colorChanger(81)"></td>
+            <td onclick="colorChanger(82)"></td>
+            <td onclick="colorChanger(83)"></td>
+            <td onclick="colorChanger(84)"></td>
+            <td onclick="colorChanger(85)"></td>
+            <td onclick="colorChanger(86)"></td>
+            <td onclick="colorChanger(87)"></td>
+            <td onclick="colorChanger(88)"></td>
+            <td onclick="colorChanger(89)"></td>
+            <td onclick="colorChanger(90)"></td>
+            <td onclick="colorChanger(91)"></td>
+            <td onclick="colorChanger(92)"></td>
+            <td onclick="colorChanger(93)"></td>
+            <td onclick="colorChanger(94)"></td>
+            <td onclick="colorChanger(95)"></td>
+            <td onclick="colorChanger(96)"></td>
+            <td onclick="colorChanger(97)"></td>
+            <td onclick="colorChanger(98)"></td>
+            <td onclick="colorChanger(99)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(100)"></td>
+            <td onclick="colorChanger(101)"></td>
+            <td onclick="colorChanger(102)"></td>
+            <td onclick="colorChanger(103)"></td>
+            <td onclick="colorChanger(104)"></td>
+            <td onclick="colorChanger(105)"></td>
+            <td onclick="colorChanger(106)"></td>
+            <td onclick="colorChanger(107)"></td>
+            <td onclick="colorChanger(108)"></td>
+            <td onclick="colorChanger(109)"></td>
+            <td onclick="colorChanger(110)"></td>
+            <td onclick="colorChanger(111)"></td>
+            <td onclick="colorChanger(112)"></td>
+            <td onclick="colorChanger(113)"></td>
+            <td onclick="colorChanger(114)"></td>
+            <td onclick="colorChanger(115)"></td>
+            <td onclick="colorChanger(116)"></td>
+            <td onclick="colorChanger(117)"></td>
+            <td onclick="colorChanger(118)"></td>
+            <td onclick="colorChanger(119)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(120)"></td>
+            <td onclick="colorChanger(121)"></td>
+            <td onclick="colorChanger(122)"></td>
+            <td onclick="colorChanger(123)"></td>
+            <td onclick="colorChanger(124)"></td>
+            <td onclick="colorChanger(125)"></td>
+            <td onclick="colorChanger(126)"></td>
+            <td onclick="colorChanger(127)"></td>
+            <td onclick="colorChanger(128)"></td>
+            <td onclick="colorChanger(129)"></td>
+            <td onclick="colorChanger(130)"></td>
+            <td onclick="colorChanger(131)"></td>
+            <td onclick="colorChanger(132)"></td>
+            <td onclick="colorChanger(133)"></td>
+            <td onclick="colorChanger(134)"></td>
+            <td onclick="colorChanger(135)"></td>
+            <td onclick="colorChanger(136)"></td>
+            <td onclick="colorChanger(137)"></td>
+            <td onclick="colorChanger(138)"></td>
+            <td onclick="colorChanger(139)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(140)"></td>
+            <td onclick="colorChanger(141)"></td>
+            <td onclick="colorChanger(142)"></td>
+            <td onclick="colorChanger(143)"></td>
+            <td onclick="colorChanger(144)"></td>
+            <td onclick="colorChanger(145)"></td>
+            <td onclick="colorChanger(146)"></td>
+            <td onclick="colorChanger(147)"></td>
+            <td onclick="colorChanger(148)"></td>
+            <td onclick="colorChanger(149)"></td>
+            <td onclick="colorChanger(150)"></td>
+            <td onclick="colorChanger(151)"></td>
+            <td onclick="colorChanger(152)"></td>
+            <td onclick="colorChanger(153)"></td>
+            <td onclick="colorChanger(154)"></td>
+            <td onclick="colorChanger(155)"></td>
+            <td onclick="colorChanger(156)"></td>
+            <td onclick="colorChanger(157)"></td>
+            <td onclick="colorChanger(158)"></td>
+            <td onclick="colorChanger(159)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(160)"></td>
+            <td onclick="colorChanger(161)"></td>
+            <td onclick="colorChanger(162)"></td>
+            <td onclick="colorChanger(163)"></td>
+            <td onclick="colorChanger(164)"></td>
+            <td onclick="colorChanger(165)"></td>
+            <td onclick="colorChanger(166)"></td>
+            <td onclick="colorChanger(167)"></td>
+            <td onclick="colorChanger(168)"></td>
+            <td onclick="colorChanger(169)"></td>
+            <td onclick="colorChanger(170)"></td>
+            <td onclick="colorChanger(171)"></td>
+            <td onclick="colorChanger(172)"></td>
+            <td onclick="colorChanger(173)"></td>
+            <td onclick="colorChanger(174)"></td>
+            <td onclick="colorChanger(175)"></td>
+            <td onclick="colorChanger(176)"></td>
+            <td onclick="colorChanger(177)"></td>
+            <td onclick="colorChanger(178)"></td>
+            <td onclick="colorChanger(179)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(180)"></td>
+            <td onclick="colorChanger(181)"></td>
+            <td onclick="colorChanger(182)"></td>
+            <td onclick="colorChanger(183)"></td>
+            <td onclick="colorChanger(184)"></td>
+            <td onclick="colorChanger(185)"></td>
+            <td onclick="colorChanger(186)"></td>
+            <td onclick="colorChanger(187)"></td>
+            <td onclick="colorChanger(188)"></td>
+            <td onclick="colorChanger(189)"></td>
+            <td onclick="colorChanger(190)"></td>
+            <td onclick="colorChanger(191)"></td>
+            <td onclick="colorChanger(192)"></td>
+            <td onclick="colorChanger(193)"></td>
+            <td onclick="colorChanger(194)"></td>
+            <td onclick="colorChanger(195)"></td>
+            <td onclick="colorChanger(196)"></td>
+            <td onclick="colorChanger(197)"></td>
+            <td onclick="colorChanger(198)"></td>
+            <td onclick="colorChanger(199)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(200)"></td>
+            <td onclick="colorChanger(201)"></td>
+            <td onclick="colorChanger(202)"></td>
+            <td onclick="colorChanger(203)"></td>
+            <td onclick="colorChanger(204)"></td>
+            <td onclick="colorChanger(205)"></td>
+            <td onclick="colorChanger(206)"></td>
+            <td onclick="colorChanger(207)"></td>
+            <td onclick="colorChanger(208)"></td>
+            <td onclick="colorChanger(209)"></td>
+            <td onclick="colorChanger(210)"></td>
+            <td onclick="colorChanger(211)"></td>
+            <td onclick="colorChanger(212)"></td>
+            <td onclick="colorChanger(213)"></td>
+            <td onclick="colorChanger(214)"></td>
+            <td onclick="colorChanger(215)"></td>
+            <td onclick="colorChanger(216)"></td>
+            <td onclick="colorChanger(217)"></td>
+            <td onclick="colorChanger(218)"></td>
+            <td onclick="colorChanger(219)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(220)"></td>
+            <td onclick="colorChanger(221)"></td>
+            <td onclick="colorChanger(222)"></td>
+            <td onclick="colorChanger(223)"></td>
+            <td onclick="colorChanger(224)"></td>
+            <td onclick="colorChanger(225)"></td>
+            <td onclick="colorChanger(226)"></td>
+            <td onclick="colorChanger(227)"></td>
+            <td onclick="colorChanger(228)"></td>
+            <td onclick="colorChanger(229)"></td>
+            <td onclick="colorChanger(230)"></td>
+            <td onclick="colorChanger(231)"></td>
+            <td onclick="colorChanger(232)"></td>
+            <td onclick="colorChanger(233)"></td>
+            <td onclick="colorChanger(234)"></td>
+            <td onclick="colorChanger(235)"></td>
+            <td onclick="colorChanger(236)"></td>
+            <td onclick="colorChanger(237)"></td>
+            <td onclick="colorChanger(238)"></td>
+            <td onclick="colorChanger(239)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(240)"></td>
+            <td onclick="colorChanger(241)"></td>
+            <td onclick="colorChanger(242)"></td>
+            <td onclick="colorChanger(243)"></td>
+            <td onclick="colorChanger(244)"></td>
+            <td onclick="colorChanger(245)"></td>
+            <td onclick="colorChanger(246)"></td>
+            <td onclick="colorChanger(247)"></td>
+            <td onclick="colorChanger(248)"></td>
+            <td onclick="colorChanger(249)"></td>
+            <td onclick="colorChanger(250)"></td>
+            <td onclick="colorChanger(251)"></td>
+            <td onclick="colorChanger(252)"></td>
+            <td onclick="colorChanger(253)"></td>
+            <td onclick="colorChanger(254)"></td>
+            <td onclick="colorChanger(255)"></td>
+            <td onclick="colorChanger(256)"></td>
+            <td onclick="colorChanger(257)"></td>
+            <td onclick="colorChanger(258)"></td>
+            <td onclick="colorChanger(259)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(260)"></td>
+            <td onclick="colorChanger(261)"></td>
+            <td onclick="colorChanger(262)"></td>
+            <td onclick="colorChanger(263)"></td>
+            <td onclick="colorChanger(264)"></td>
+            <td onclick="colorChanger(265)"></td>
+            <td onclick="colorChanger(266)"></td>
+            <td onclick="colorChanger(267)"></td>
+            <td onclick="colorChanger(268)"></td>
+            <td onclick="colorChanger(269)"></td>
+            <td onclick="colorChanger(270)"></td>
+            <td onclick="colorChanger(271)"></td>
+            <td onclick="colorChanger(272)"></td>
+            <td onclick="colorChanger(273)"></td>
+            <td onclick="colorChanger(274)"></td>
+            <td onclick="colorChanger(275)"></td>
+            <td onclick="colorChanger(276)"></td>
+            <td onclick="colorChanger(277)"></td>
+            <td onclick="colorChanger(278)"></td>
+            <td onclick="colorChanger(279)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(280)"></td>
+            <td onclick="colorChanger(281)"></td>
+            <td onclick="colorChanger(282)"></td>
+            <td onclick="colorChanger(283)"></td>
+            <td onclick="colorChanger(284)"></td>
+            <td onclick="colorChanger(285)"></td>
+            <td onclick="colorChanger(286)"></td>
+            <td onclick="colorChanger(287)"></td>
+            <td onclick="colorChanger(288)"></td>
+            <td onclick="colorChanger(289)"></td>
+            <td onclick="colorChanger(290)"></td>
+            <td onclick="colorChanger(291)"></td>
+            <td onclick="colorChanger(292)"></td>
+            <td onclick="colorChanger(293)"></td>
+            <td onclick="colorChanger(294)"></td>
+            <td onclick="colorChanger(295)"></td>
+            <td onclick="colorChanger(296)"></td>
+            <td onclick="colorChanger(297)"></td>
+            <td onclick="colorChanger(298)"></td>
+            <td onclick="colorChanger(299)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(300)"></td>
+            <td onclick="colorChanger(301)"></td>
+            <td onclick="colorChanger(302)"></td>
+            <td onclick="colorChanger(303)"></td>
+            <td onclick="colorChanger(304)"></td>
+            <td onclick="colorChanger(305)"></td>
+            <td onclick="colorChanger(306)"></td>
+            <td onclick="colorChanger(307)"></td>
+            <td onclick="colorChanger(308)"></td>
+            <td onclick="colorChanger(309)"></td>
+            <td onclick="colorChanger(310)"></td>
+            <td onclick="colorChanger(311)"></td>
+            <td onclick="colorChanger(312)"></td>
+            <td onclick="colorChanger(313)"></td>
+            <td onclick="colorChanger(314)"></td>
+            <td onclick="colorChanger(315)"></td>
+            <td onclick="colorChanger(316)"></td>
+            <td onclick="colorChanger(317)"></td>
+            <td onclick="colorChanger(318)"></td>
+            <td onclick="colorChanger(319)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(320)"></td>
+            <td onclick="colorChanger(321)"></td>
+            <td onclick="colorChanger(322)"></td>
+            <td onclick="colorChanger(323)"></td>
+            <td onclick="colorChanger(324)"></td>
+            <td onclick="colorChanger(325)"></td>
+            <td onclick="colorChanger(326)"></td>
+            <td onclick="colorChanger(327)"></td>
+            <td onclick="colorChanger(328)"></td>
+            <td onclick="colorChanger(329)"></td>
+            <td onclick="colorChanger(330)"></td>
+            <td onclick="colorChanger(331)"></td>
+            <td onclick="colorChanger(332)"></td>
+            <td onclick="colorChanger(333)"></td>
+            <td onclick="colorChanger(334)"></td>
+            <td onclick="colorChanger(335)"></td>
+            <td onclick="colorChanger(336)"></td>
+            <td onclick="colorChanger(337)"></td>
+            <td onclick="colorChanger(338)"></td>
+            <td onclick="colorChanger(339)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(340)"></td>
+            <td onclick="colorChanger(341)"></td>
+            <td onclick="colorChanger(342)"></td>
+            <td onclick="colorChanger(343)"></td>
+            <td onclick="colorChanger(344)"></td>
+            <td onclick="colorChanger(345)"></td>
+            <td onclick="colorChanger(346)"></td>
+            <td onclick="colorChanger(347)"></td>
+            <td onclick="colorChanger(348)"></td>
+            <td onclick="colorChanger(349)"></td>
+            <td onclick="colorChanger(350)"></td>
+            <td onclick="colorChanger(351)"></td>
+            <td onclick="colorChanger(352)"></td>
+            <td onclick="colorChanger(353)"></td>
+            <td onclick="colorChanger(354)"></td>
+            <td onclick="colorChanger(355)"></td>
+            <td onclick="colorChanger(356)"></td>
+            <td onclick="colorChanger(357)"></td>
+            <td onclick="colorChanger(358)"></td>
+            <td onclick="colorChanger(359)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(360)"></td>
+            <td onclick="colorChanger(361)"></td>
+            <td onclick="colorChanger(362)"></td>
+            <td onclick="colorChanger(363)"></td>
+            <td onclick="colorChanger(364)"></td>
+            <td onclick="colorChanger(365)"></td>
+            <td onclick="colorChanger(366)"></td>
+            <td onclick="colorChanger(367)"></td>
+            <td onclick="colorChanger(368)"></td>
+            <td onclick="colorChanger(369)"></td>
+            <td onclick="colorChanger(370)"></td>
+            <td onclick="colorChanger(371)"></td>
+            <td onclick="colorChanger(372)"></td>
+            <td onclick="colorChanger(373)"></td>
+            <td onclick="colorChanger(374)"></td>
+            <td onclick="colorChanger(375)"></td>
+            <td onclick="colorChanger(376)"></td>
+            <td onclick="colorChanger(377)"></td>
+            <td onclick="colorChanger(378)"></td>
+            <td onclick="colorChanger(379)"></td>
+        </tr>
+        <tr>
+            <td onclick="colorChanger(380)"></td>
+            <td onclick="colorChanger(381)"></td>
+            <td onclick="colorChanger(382)"></td>
+            <td onclick="colorChanger(383)"></td>
+            <td onclick="colorChanger(384)"></td>
+            <td onclick="colorChanger(385)"></td>
+            <td onclick="colorChanger(386)"></td>
+            <td onclick="colorChanger(387)"></td>
+            <td onclick="colorChanger(388)"></td>
+            <td onclick="colorChanger(389)"></td>
+            <td onclick="colorChanger(390)"></td>
+            <td onclick="colorChanger(391)"></td>
+            <td onclick="colorChanger(392)"></td>
+            <td onclick="colorChanger(393)"></td>
+            <td onclick="colorChanger(394)"></td>
+            <td onclick="colorChanger(395)"></td>
+            <td onclick="colorChanger(396)"></td>
+            <td onclick="colorChanger(397)"></td>
+            <td onclick="colorChanger(398)"></td>
+            <td onclick="colorChanger(399)"></td>
+        </tr>
     </table>
-    <script type = "text/javascript">
-        //
-        let selectedColor = "green";
-        let color;
-        let gridVisible = true;
-        //
-        function greenSelecter() {
-            document.getElementById('green_button').innerHTML = "(Green)";
-            document.getElementById('brown_button').innerHTML = "Brown";
-            document.getElementById('blue_button').innerHTML = "Blue";
-            document.getElementById('white_button').innerHTML = "White";
-            selectedColor = "green";
-        }
-        function brownSelecter() {
-            document.getElementById('brown_button').innerHTML = "(Brown)";
-            document.getElementById('green_button').innerHTML = "Green";
-            document.getElementById('blue_button').innerHTML = "Blue";
-            document.getElementById('white_button').innerHTML = "White";
-            selectedColor = "brown";
-        }
-        function blueSelecter() {
-            document.getElementById('blue_button').innerHTML = "(Blue)";
-            document.getElementById('green_button').innerHTML = "Green";
-            document.getElementById('brown_button').innerHTML = "Brown";
-            document.getElementById('white_button').innerHTML = "White";
-            selectedColor = "blue";
-        }
-        function whiteSelecter() {
-            document.getElementById('white_button').innerHTML = "(White)";
-            document.getElementById('blue_button').innerHTML = "Blue";
-            document.getElementById('green_button').innerHTML = "Green";
-            document.getElementById('brown_button').innerHTML = "Brown";
-            selectedColor = "white";
-        }
-        //
-        function colorChanger(cellNumber) {
-            color = document.getElementById("mainTable").getElementsByTagName("td");
-            color[cellNumber].style.backgroundColor = selectedColor;
-        }
-        //
-        function gridChanger() {
-            if (gridVisible == true) {
-
-            }
-        }
-    </script>
+    <div id="mapSaver">
+        <input id="mapSavingCode" type="text" />
+        <button id="save_button" onclick="saver()">SAVE</button>
+        <br>
+        <input id="mapLoaderCode" type="text" />
+        <button id="load_button" onclick="loader()">LOAD</button>
+    </div>
 </body>
 </html>
