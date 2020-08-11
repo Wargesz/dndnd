@@ -137,12 +137,12 @@
     color: #fff44f;
 }
 
-.characters-menu > ul > li > a {
-    color: #fff;
-}
-
 .dead-character {
     color: #ff0000;
+}
+
+.characters-menu > ul > li > a {
+    color: #fff;
 }
 
 .nav-karakter {
