@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>D&D&D | LvlManager</title>
+    <script>
+        //
+        let table;
+        //
+        let marciLvl = 1;
+        let marciExp = 0;
+        let marciGainedExp = 0;
+        //
+        let aronLvl = 1;
+        let aronExp = 0;
+        //
+        let geroLvl = 1;
+        let geroExp = 0;
+        //
+        let hunorLvl = 1;
+        let hunorExp = 0;
+        //
+        let gellertLvl = 1;
+        let gellertExp = 0;
+        //
+        let petiLvl = 1;
+        let petiExp = 0;
+        //
+        let lvlUp = false;
+        let reqExp;
+        //
+        function AddExp(player) {
+            if (player == 1) {
+                marciGainedExp = document.getElementById("marciGainedExp").valueAsNumber;
+                lvlUpChecker(1);
+                if (lvlUp == false) {
+                    marciExp = marciGainedExp + marciExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[6].innerText = marciExp;
+                }
+                if (lvlUp == true) {
+                    marciExp = marciGainedExp + marciExp;
+                    marciExp = marciExp - reqExp;
+                    marciLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[6].innerText = marciExp;
+                    table[4].innerText = marciLvl;
+                }
+            }
+            //
+            if (player == 2) {
+                aronGainedExp = document.getElementById("aronGainedExp").valueAsNumber;
+                lvlUpChecker(2);
+                if (lvlUp == false) {
+                    aronExp = aronGainedExp + aronExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[15].innerText = aronExp;
+                }
+                if (lvlUp == true) {
+                    aronExp = aronGainedExp + aronExp;
+                    aronExp = aronExp - reqExp;
+                    aronLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[15].innerText = aronExp;
+                    table[13].innerText = aronLvl;
+                }
+            }
+            //
+            if (player == 3) {
+                geroGainedExp = document.getElementById("geroGainedExp").valueAsNumber;
+                lvlUpChecker(3);
+                if (lvlUp == false) {
+                    geroExp = geroGainedExp + geroExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[24].innerText = geroExp;
+                }
+                if (lvlUp == true) {
+                    geroExp = geroGainedExp + geroExp;
+                    geroExp = geroExp - reqExp;
+                    geroLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[24].innerText = geroExp;
+                    table[22].innerText = geroLvl;
+                }
+            }
+            //
+            if (player == 4) {
+                hunorGainedExp = document.getElementById("hunorGainedExp").valueAsNumber;
+                lvlUpChecker(4);
+                if (lvlUp == false) {
+                    hunorExp = hunorGainedExp + hunorExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[33].innerText = hunorExp;
+                }
+                if (lvlUp == true) {
+                    hunorExp = hunorGainedExp + hunorExp;
+                    hunorExp = hunorExp - reqExp;
+                    hunorLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[33].innerText = hunorExp;
+                    table[31].innerText = hunorLvl;
+                }
+            }
+            //
+            if (player == 5) {
+                gellertGainedExp = document.getElementById("gellertGainedExp").valueAsNumber;
+                lvlUpChecker(5);
+                if (lvlUp == false) {
+                    gellertExp = gellertGainedExp + gellertExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[42].innerText = gellertExp;
+                }
+                if (lvlUp == true) {
+                    gellertExp = gellertGainedExp + gellertExp;
+                    gellertExp = gellertExp - reqExp;
+                    gellertLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[42].innerText = gellertExp;
+                    table[40].innerText = gellertLvl;
+                }
+            }
+            //
+            if (player == 6) {
+                petiGainedExp = document.getElementById("petiGainedExp").valueAsNumber;
+                lvlUpChecker(6);
+                if (lvlUp == false) {
+                    petiExp = petiGainedExp + petiExp;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[51].innerText = petiExp;
+                }
+                if (lvlUp == true) {
+                    petiExp = petiGainedExp + petiExp;
+                    petiExp = petiExp - reqExp;
+                    petiLvl++;
+                    table = document.getElementById("mainTable").getElementsByTagName("td");
+                    table[51].innerText = petiExp;
+                    table[49].innerText = petiLvl;
+                }
+            }
+            //
+        }
+        //
+        function lvlUpChecker(player) {
+            if (player == 1) {
+                if (marciLvl == 1) { reqExp = 300; }
+                if (marciLvl == 2) { reqExp = 900; }
+                if (marciLvl == 3) { reqExp = 2700; }
+                if (marciLvl == 4) { reqExp = 6500; }
+                if (marciLvl == 5) { reqExp = 14000; }
+                if (marciLvl == 6) { reqExp = 23000; }
+                if (marciLvl == 7) { reqExp = 34000; }
+                if (marciLvl == 8) { reqExp = 48000; }
+                if (marciLvl == 9) { reqExp = 64000; }
+                if (marciLvl == 10) { reqExp = 85000; }
+                if (marciLvl == 11) { reqExp = 100000; }
+                if (marciLvl == 12) { reqExp = 120000; }
+                if (marciLvl == 13) { reqExp = 140000; }
+                if (marciLvl == 14) { reqExp = 165000; }
+                if (marciLvl == 15) { reqExp = 195000; }
+                if (marciLvl == 16) { reqExp = 225000; }
+                if (marciLvl == 17) { reqExp = 265000; }
+                if (marciLvl == 18) { reqExp = 305000; }
+                if (marciLvl == 19) { reqExp = 355000; }
+                if (marciExp + marciGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+            if (player == 2) {
+                if (aronLvl == 1) { reqExp = 300; }
+                if (aronLvl == 2) { reqExp = 900; }
+                if (aronLvl == 3) { reqExp = 2700; }
+                if (aronLvl == 4) { reqExp = 6500; }
+                if (aronLvl == 5) { reqExp = 14000; }
+                if (aronLvl == 6) { reqExp = 23000; }
+                if (aronLvl == 7) { reqExp = 34000; }
+                if (aronLvl == 8) { reqExp = 48000; }
+                if (aronLvl == 9) { reqExp = 64000; }
+                if (aronLvl == 10) { reqExp = 85000; }
+                if (aronLvl == 11) { reqExp = 100000; }
+                if (aronLvl == 12) { reqExp = 120000; }
+                if (aronLvl == 13) { reqExp = 140000; }
+                if (aronLvl == 14) { reqExp = 165000; }
+                if (aronLvl == 15) { reqExp = 195000; }
+                if (aronLvl == 16) { reqExp = 225000; }
+                if (aronLvl == 17) { reqExp = 265000; }
+                if (aronLvl == 18) { reqExp = 305000; }
+                if (aronLvl == 19) { reqExp = 355000; }
+                if (aronExp + aronGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+            if (player == 3) {
+                if (geroLvl == 1) { reqExp = 300; }
+                if (geroLvl == 2) { reqExp = 900; }
+                if (geroLvl == 3) { reqExp = 2700; }
+                if (geroLvl == 4) { reqExp = 6500; }
+                if (geroLvl == 5) { reqExp = 14000; }
+                if (geroLvl == 6) { reqExp = 23000; }
+                if (geroLvl == 7) { reqExp = 34000; }
+                if (geroLvl == 8) { reqExp = 48000; }
+                if (geroLvl == 9) { reqExp = 64000; }
+                if (geroLvl == 10) { reqExp = 85000; }
+                if (geroLvl == 11) { reqExp = 100000; }
+                if (geroLvl == 12) { reqExp = 120000; }
+                if (geroLvl == 13) { reqExp = 140000; }
+                if (geroLvl == 14) { reqExp = 165000; }
+                if (geroLvl == 15) { reqExp = 195000; }
+                if (geroLvl == 16) { reqExp = 225000; }
+                if (geroLvl == 17) { reqExp = 265000; }
+                if (geroLvl == 18) { reqExp = 305000; }
+                if (geroLvl == 19) { reqExp = 355000; }
+                if (geroExp + geroGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+            if (player == 4) {
+                if (hunorLvl == 1) { reqExp = 300; }
+                if (hunorLvl == 2) { reqExp = 900; }
+                if (hunorLvl == 3) { reqExp = 2700; }
+                if (hunorLvl == 4) { reqExp = 6500; }
+                if (hunorLvl == 5) { reqExp = 14000; }
+                if (hunorLvl == 6) { reqExp = 23000; }
+                if (hunorLvl == 7) { reqExp = 34000; }
+                if (hunorLvl == 8) { reqExp = 48000; }
+                if (hunorLvl == 9) { reqExp = 64000; }
+                if (hunorLvl == 10) { reqExp = 85000; }
+                if (hunorLvl == 11) { reqExp = 100000; }
+                if (hunorLvl == 12) { reqExp = 120000; }
+                if (hunorLvl == 13) { reqExp = 140000; }
+                if (hunorLvl == 14) { reqExp = 165000; }
+                if (hunorLvl == 15) { reqExp = 195000; }
+                if (hunorLvl == 16) { reqExp = 225000; }
+                if (hunorLvl == 17) { reqExp = 265000; }
+                if (hunorLvl == 18) { reqExp = 305000; }
+                if (hunorLvl == 19) { reqExp = 355000; }
+                if (hunorExp + hunorGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+            if (player == 5) {
+                if (gellertLvl == 1) { reqExp = 300; }
+                if (gellertLvl == 2) { reqExp = 900; }
+                if (gellertLvl == 3) { reqExp = 2700; }
+                if (gellertLvl == 4) { reqExp = 6500; }
+                if (gellertLvl == 5) { reqExp = 14000; }
+                if (gellertLvl == 6) { reqExp = 23000; }
+                if (gellertLvl == 7) { reqExp = 34000; }
+                if (gellertLvl == 8) { reqExp = 48000; }
+                if (gellertLvl == 9) { reqExp = 64000; }
+                if (gellertLvl == 10) { reqExp = 85000; }
+                if (gellertLvl == 11) { reqExp = 100000; }
+                if (gellertLvl == 12) { reqExp = 120000; }
+                if (gellertLvl == 13) { reqExp = 140000; }
+                if (gellertLvl == 14) { reqExp = 165000; }
+                if (gellertLvl == 15) { reqExp = 195000; }
+                if (gellertLvl == 16) { reqExp = 225000; }
+                if (gellertLvl == 17) { reqExp = 265000; }
+                if (gellertLvl == 18) { reqExp = 305000; }
+                if (gellertLvl == 19) { reqExp = 355000; }
+                if (gellertExp + gellertGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+            if (player == 6) {
+                if (petiLvl == 1) { reqExp = 300; }
+                if (petiLvl == 2) { reqExp = 900; }
+                if (petiLvl == 3) { reqExp = 2700; }
+                if (petiLvl == 4) { reqExp = 6500; }
+                if (petiLvl == 5) { reqExp = 14000; }
+                if (petiLvl == 6) { reqExp = 23000; }
+                if (petiLvl == 7) { reqExp = 34000; }
+                if (petiLvl == 8) { reqExp = 48000; }
+                if (petiLvl == 9) { reqExp = 64000; }
+                if (petiLvl == 10) { reqExp = 85000; }
+                if (petiLvl == 11) { reqExp = 100000; }
+                if (petiLvl == 12) { reqExp = 120000; }
+                if (petiLvl == 13) { reqExp = 140000; }
+                if (petiLvl == 14) { reqExp = 165000; }
+                if (petiLvl == 15) { reqExp = 195000; }
+                if (petiLvl == 16) { reqExp = 225000; }
+                if (petiLvl == 17) { reqExp = 265000; }
+                if (petiLvl == 18) { reqExp = 305000; }
+                if (petiLvl == 19) { reqExp = 355000; }
+                if (petiExp + petiGainedExp >= reqExp) {
+                    lvlUp = true;
+                }
+                else {
+                    lvlUp = false;
+                }
+            }
+            //
+        }
+        //
+    </script>
+</head>
+<body>
+
+    <table style="width: 300px" id="mainTable">
+        <tr>
+            <td>Marci</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="marciProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="marciLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="marciExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="marciGainedExp"></td>
+            <td><button onclick="AddExp(1)">AddExp</button></td>
+        </tr>
+        <tr>
+            <td>Áron</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="aronProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="aronLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="aronExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="aronGainedExp" /></td>
+            <td><button onclick="AddExp(2)">AddExp</button></td>
+        </tr>
+        <tr>
+            <td>Gero</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="geroProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="geroLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="geroExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="geroGainedExp" /></td>
+            <td><button onclick="AddExp(3)">AddExp</button></td>
+        </tr>
+        <tr>
+            <td>Hunor</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="hunorProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="hunorLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="hunorExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="hunorGainedExp" /></td>
+            <td><button onclick="AddExp(4)">AddExp</button></td>
+        </tr>
+        <tr>
+            <td>Gellért</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="gellertProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="gellertLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="gellertExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="gellertGainedExp" /></td>
+            <td><button onclick="AddExp(5)">AddExp</button></td>
+        </tr>
+        <tr>
+            <td>Peti</td>
+        </tr>
+        <tr>
+            <td>Proficiency bonus:</td>
+            <td id="petiProfBonus">-</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td id="petiLevel">1</td>
+        </tr>
+        <tr>
+            <td>Exp</td>
+            <td id="petiExp">0</td>
+        </tr>
+        <tr>
+            <td><input placeholder="Gained Exp" type="number" id="petiGainedExp"/></td>
+            <td><button onclick="AddExp(6)">AddExp</button></td>
+        </tr>
+    </table>
+</body>
+</html>
