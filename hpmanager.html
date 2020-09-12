@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+    <title>D&D&D | HPManager</title>
+    <meta charset="UTF-8">
+    <style>
+        .main {
+            display: inline;
+            margin: 4px;
+        }
+        input {
+            text-align: center;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" class="main">
+    </div>
+    <script>
+        let text;
+        let mainDiv;
+        let element;
+        let buttonText;
+        function create() {
+            mainDiv = document.getElementById('main');
+            //
+            element = document.createElement("INPUT");
+            element.setAttribute("placeholder", "1");
+            element.setAttribute("id", "input");
+            element.setAttribute("class", "main");
+            mainDiv.appendChild(element);
+            //
+            element = document.createElement("div");
+            element.setAttribute("id", "div1");
+            element.setAttribute("class", "main");
+            mainDiv.appendChild(element);
+            document.getElementById("div1").innerText = "d";
+            //
+            element = document.createElement("INPUT");
+            element.setAttribute("placeholder", "1");
+            element.setAttribute("id", "input");
+            element.setAttribute("class", "main");
+            mainDiv.appendChild(element);
+            //
+            element = document.createElement("div");
+            element.setAttribute("id", "div2");
+            element.setAttribute("class", "main");
+            mainDiv.appendChild(element);
+            document.getElementById("div2").innerText = "+";
+            //
+            element = document.createElement("INPUT");
+            element.setAttribute("placeholder", "1");
+            element.setAttribute("id", "input");
+            element.setAttribute("class", "main");
+            mainDiv.appendChild(element);
+            //
+            element = document.createElement("BUTTON");
+            text = "SUBMIT";
+            buttonText = document.createTextNode(text);
+            element.appendChild(buttonText);
+            mainDiv.appendChild(element);
+        }
+        create();
+    </script>
+</body>
+</html>
