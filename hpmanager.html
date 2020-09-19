@@ -17,16 +17,26 @@
     <div id="main" class="main">
     </div>
     <script>
+        let i;
         let text;
         let mainDiv;
         let element;
         let buttonText;
+        //
+        let diceQt;
+        let dice;
+        let hpBonus = 0;
+        let rolledHp = 0;
+        let hp = 0;
+        //
+        create();
+        //
         function create() {
             mainDiv = document.getElementById('main');
             //
             element = document.createElement("INPUT");
             element.setAttribute("placeholder", "1");
-            element.setAttribute("id", "input");
+            element.setAttribute("id", "diceQt");
             element.setAttribute("class", "main");
             mainDiv.appendChild(element);
             //
@@ -38,7 +48,7 @@
             //
             element = document.createElement("INPUT");
             element.setAttribute("placeholder", "1");
-            element.setAttribute("id", "input");
+            element.setAttribute("id", "dice");
             element.setAttribute("class", "main");
             mainDiv.appendChild(element);
             //
@@ -50,17 +60,53 @@
             //
             element = document.createElement("INPUT");
             element.setAttribute("placeholder", "1");
-            element.setAttribute("id", "input");
+            element.setAttribute("id", "hpBonus");
             element.setAttribute("class", "main");
             mainDiv.appendChild(element);
             //
             element = document.createElement("BUTTON");
+            element.setAttribute("onClick" , "submit()");
             text = "SUBMIT";
             buttonText = document.createTextNode(text);
             element.appendChild(buttonText);
             mainDiv.appendChild(element);
         }
-        create();
+        //
+        function submit() {
+            diceQt = document.getElementById('diceQt').value;
+            dice = document.getElementById('dice').value;
+            hpBonus = document.getElementById('hpBonus').value;
+            //
+            for (i = 1; i <= diceQt; i++) {
+                rolledHp = 0;
+                if (dice == 4) {
+                    rolledHp = Math.floor((Math.random() * 4) + 1);
+                }
+                if (dice == 6) {
+                    rolledHp = Math.floor((Math.random() * 6) + 1);
+                }
+                if (dice == 8) {
+                    rolledHp = Math.floor((Math.random() * 8) + 1);
+                }
+                if (dice == 10) {
+                    rolledHp = Math.floor((Math.random() * 10) + 1);
+                }
+                if (dice == 12) {
+                    rolledHp = Math.floor((Math.random() * 12) + 1);
+                }
+                if (dice == 20) {
+                    rolledHp = Math.floor((Math.random() * 20) + 1);
+                }
+                if (dice == 100) {
+                    rolledHp = Math.floor((Math.random() * 100) + 1);
+                }
+                //
+                console.log(rolledHp);
+                hp = hp + rolledHp;
+            }
+            hp = hp + hpBonus;
+            console.log(hp);
+        }
     </script>
 </body>
 </html>
