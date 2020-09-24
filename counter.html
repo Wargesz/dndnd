@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>D&D&D | Counter</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="setter">
+        <input placeholder="maxKi" id="maxKi" />
+        <button id="setter" onclick="set()">SET</button>
+    </div>
+    <div id="buttons">
+        <button id="minus" onclick="minus()">-1</button>
+        <button id="reset" onclick="reset()">RESET</button>
+    </div>
+    <div id="number">
+    </div>
+    <script>
+        //
+        maxKi = 0;
+        //
+        function start() {
+            document.getElementById('number').innerHTML = "Ki points: " + ki;
+        }
+        function minus() {
+            if (ki == 0) {
+                console.log('Error');
+            }
+            else {
+                ki--;
+                start();
+            }
+        }
+        function reset() {
+            ki = maxKi;
+            start();
+        }
+        function set() {
+            maxKi = document.getElementById('maxKi').value;
+            ki = maxKi;
+            start();
+        }
+    </script>
+</body>
+</html>
