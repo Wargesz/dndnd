@@ -19,3 +19,6 @@
 .vs/dndnd/v16/.suo
 *.sqlite
 .vs/dndnd/v16/.suo
+.vs/dndnd/v16/.suo
+*.sqlite
+*.json
