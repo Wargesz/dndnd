@@ -1,11 +1,13 @@
-<html>
+﻿<html>
 <head>
     <title>D&D&D | Counter</title>
     <meta charset="utf-8">
 </head>
 <body>
     <div id="setter">
-        <input placeholder="maxKi" id="maxKi" />
+        Set your max points!
+        <br>
+        <input placeholder="maxPoints" id="maxPoints" />
         <button id="setter" onclick="set()">SET</button>
     </div>
     <div id="buttons">
@@ -16,27 +18,40 @@
     </div>
     <script>
         //
-        maxKi = 0;
+        let element;
+        let maxPoints = 0;
+        let points = 0;
         //
+        prep();
+        function prep() {
+            element = document.getElementById('buttons');
+            element.style.display = "none";
+        }
         function start() {
-            document.getElementById('number').innerHTML = "Ki points: " + ki;
+            document.getElementById('number').innerHTML = "Points: " + points;
         }
         function minus() {
-            if (ki == 0) {
+            if (points == 0) {
                 console.log('Error');
             }
             else {
-                ki--;
+                points--;
                 start();
             }
         }
         function reset() {
-            ki = maxKi;
+            points = maxPoints;
             start();
         }
         function set() {
-            maxKi = document.getElementById('maxKi').value;
-            ki = maxKi;
+            element = document.getElementById('setter');
+            element.style.display = "none";
+            //
+            element = document.getElementById('buttons');
+            element.style.display = "block";
+            //
+            maxPoints = document.getElementById('maxPoints').value;
+            points = maxPoints;
             start();
         }
     </script>
